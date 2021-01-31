@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'authentication',
     'contacts',
     'drf_yasg',
+    'corsheaders',
 ]
 
 SWAGGER_SETTINGS={
@@ -71,6 +72,7 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -154,3 +156,10 @@ JWT_SECERT_KEY = f"{os.environ.get('JWT_SECERT_KEY')}"
 
 
 django_heroku.settings(locals())
+
+
+#CORS
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    "http://localhost:3000"
+]
